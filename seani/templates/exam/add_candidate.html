@@ -1,0 +1,12 @@
+{% extends 'admin/base.html' %}
+<h1>Agregar Aspirante</h1>
+
+
+{% block content %}
+  
+<form method="post">
+  {% csrf_token %} {{ form }}
+  <input type="submit" value="Guardar" />
+</form>
+
+{% endblock %}
