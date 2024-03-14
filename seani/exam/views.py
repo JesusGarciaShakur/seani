@@ -1,11 +1,22 @@
 from django.http import HttpResponse
 from django.shortcuts import render
+from django.contrib.auth.models import User
 
 from .forms import CandidateForm
 from .models import Exam
 from django.contrib.auth.models import User
 
-# Create your views here.
+
+def home(request):
+    user = request.user
+    return render(request, 'exam/home.html', {"user": user})
+
+def question(request, m_id, q_id = 1):
+    examn = request.user.exam
+    questions = examn.breakdown_set.filter(question__module_id = m_id)
+    question = questions[q_id - 1].question
+    return render(request, 'exam/question.html', {"question": question})
+
 def add_candidate(request):
     if request.method == "POST":
         form = CandidateForm(request.POST)

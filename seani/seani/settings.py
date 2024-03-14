@@ -31,6 +31,7 @@ INSTALLED_APPS = [
     'library.apps.LibraryConfig',
     'career.apps.CareerConfig',
     'exam.apps.ExamConfig',
+    'home.apps.HomeConfig',
     #Django apps
     'django.contrib.admin',
     'django.contrib.auth',
@@ -129,6 +130,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
+
+LOGIN_REDIRECT_URL = '/exam'
+LOGOUT_REDIRECT_URL = '/'
 
 cloudinary.config( 
   cloud_name = str(os.environ.get('CLOUD_NAME')), 
