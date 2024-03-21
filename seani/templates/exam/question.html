@@ -1,3 +1,10 @@
+{% extends 'base.html' %}
+
+
+{% block title %}Question{% endblock %}
+    
+
+{% block content %}
 <h1>{{ question.module }}</h1>
 
 {% if question.question_image %}
@@ -30,6 +37,6 @@
     {% if answer == 'D' %}checked{% endif %}>
     <label for="ans4">{{ question.answer4 }}</label><br>
     {% endif %}
-    <input type="submit" value="Siguiente">
-                
+    <input type="submit" value="Siguiente">         
 </form>
+{% endblock %}
