@@ -1,12 +1,13 @@
 {% extends 'admin/base.html' %}
-<h1>Agregar Aspirante</h1>
-
+{% load static %}
 
 {% block content %}
-  
+<h1>Agregar Aspirante</h1>
+
 <form method="post">
-  {% csrf_token %} {{ form }}
-  <input type="submit" value="Guardar" />
+  {% csrf_token %}
+  {{ form.as_p }}
+  <input type="submit" value="Guardar" class="button" />
 </form>
 
 {% endblock %}
